@@ -56,5 +56,5 @@ export function encryptFile(file: string, key: string, salt?: string) {
   // Create a write stream with a different file extension.
   const writeStream = createWriteStream(path.join(file + ".enc"));
 
-  readStream.pipe(cipher).pipe(appendInitVector).pipe(writeStream);
+  return readStream.pipe(cipher).pipe(appendInitVector).pipe(writeStream);
 }
